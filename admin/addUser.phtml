@@ -1,0 +1,137 @@
+<div class="container-fluid">
+			<div class="row">
+				<!-- main title -->
+				<div class="col-12">
+					<div class="main__title">
+						<h2>Add user</h2>
+					</div>
+				</div>
+				<!-- end main title -->
+
+				<!-- content tabs -->
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
+						<div class="col-12">
+							<div class="sign__wrap">
+								<div class="row">
+									<!-- details form -->
+									<div class="col-12 ">
+									<?php if(isset($_GET["error"])){ 
+									echo" <script>alert('ONE OR MORE OF THE FIELDS IS EMPTY !!!')</script>";
+									
+										  }
+									?> 
+									 
+									 <?php if (isset ($_GET['id'])){   ?>
+
+										<form action="checkAddUser.php"   method="GET" class="sign__form sign__form--profile sign__form--first">
+										<input type="hidden" name="id"  value="<?=$id;?>">
+
+											<div class="row">
+												<div class="col-12">
+													<h4 class="sign__title">Profile details</h4>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="email">Email</label>
+														<input id="email" type="text" name="mailuser" value="<?=$mailuser?>" class="sign__input" placeholder="email@email.com" >
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="oldpass">Password</label>
+														<input id="oldpass" type="password" name="password" value="<?=$password?>" class="sign__input">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="firstname">First name</label>
+														<input id="firstname" type="text" name="prenom" value="<?=$prenom?>" class="sign__input" placeholder="John">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="lastname">Last name</label>
+														<input id="lastname" type="text" name="nom" value="<?=$nom?>" class="sign__input" placeholder="Doe">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="subscription">Subscription</label>
+														<select class="js-example-basic-single" id="subscription" name="abonnement">
+															<option value="Premium" <?php if (strtoupper ($abonnement)=="PREMIUM"){echo "SELECTED";}?> >Premium</option>
+															<option value="Free" <?php if (strtoupper ($abonnement)=="FREE"){echo "SELECTED";}?>>Free</option>
+														</select>
+													</div>
+												</div>
+
+
+												<div class="col-12">
+													<input class="sign__btn" style="border:0px;" type="submit" value="Update" name="update">
+												</div>
+											</div>
+										</form>
+										
+									 <?php } else{ ?>
+										<form action="checkAddUser.php"   method="GET" class="sign__form sign__form--profile sign__form--first">
+											<div class="row">
+												<div class="col-12">
+													<h4 class="sign__title">Profile details</h4>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="email">Email</label>
+														<input id="email" type="text" name="mailuser" class="sign__input" placeholder="email@email.com">
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="oldpass">Password</label>
+														<input id="oldpass" type="password" name="password" class="sign__input">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="firstname">First name</label>
+														<input id="firstname" type="text" name="prenom" class="sign__input" placeholder="John">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="lastname">Last name</label>
+														<input id="lastname" type="text" name="nom" class="sign__input" placeholder="Doe">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="subscription">Subscription</label>
+														<select class="js-example-basic-single" id="subscription" name="abonnement">
+															<option value="Premium">Premium</option>
+															<option value="Free">Free</option>
+														</select>
+													</div>
+												</div>
+
+
+												<div class="col-12">
+													<input class="sign__btn" style="border:0px;" type="submit" value="Add User">
+												</div>
+											</div>
+										</form>
+										<?php } ?>
+									</div>
+									<!-- end details form -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end content tabs -->
+			</div>
+		</div>

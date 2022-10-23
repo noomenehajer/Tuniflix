@@ -1,0 +1,151 @@
+<div class="container-fluid">
+			<div class="row">
+				<!-- main title -->
+				<div class="col-12">
+					<div class="main__title">
+						<h2>Add admin</h2>
+					</div>
+				</div>
+				<!-- end main title -->
+
+			
+
+				<!-- content tabs -->
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
+						<div class="col-12">
+							<div class="sign__wrap">
+								<div class="row">
+									<!-- details form -->
+									<div class="col-12 ">
+									<?php 
+										if(isset($_GET["error"])){ 
+									
+											echo" <script>alert('ONE OR MORE OF THE FIELDS IS EMPTY !!!')</script>";
+									
+										}?> 
+										
+									<?php if (isset ($_GET['id'])){   ?>
+
+									<form action="checkAddAdmin.php"  method="GET" class="form">
+									
+									<input type="hidden" name="id"  value="<?=$id;?>">
+
+											<div class="row">
+												<div class="col-12">
+													<h4 class="sign__title">Profile details</h4>
+												</div>
+					
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="email">Email</label>
+														<input id="email" type="text" name="email" value="<?=$mail?>" class="sign__input" placeholder="email@email.com">
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="oldpass">Password</label>
+														<input id="oldpass" type="password" name="pass" value="<?=$password?>" class="sign__input">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="firstname">First name</label>
+														<input id="firstname" type="text" name="firstname" value="<?=$prenom?>" class="sign__input" placeholder="John">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="lastname">Last name</label>
+														<input id="lastname" type="text" name="lastname" value="<?=$nom?>" class="sign__input" placeholder="Doe">
+													</div>
+												</div>
+
+											
+
+												<div class="col-12 ">
+													<div class="sign__group">
+														<label class="sign__label" for="rights">Rights</label>
+														<select class="js-example-basic-single" id="rights" name="role">
+															<option value="Modifier" <?php if (strtoupper ($role)=="MODIFIER"){echo "SELECTED";}?>>Modifier</option>
+															<option value="Visualiser" <?php if (strtoupper ($role)=="VISUALISER"){echo "SELECTED";}?> >Visualiser</option>
+														
+														</select>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<input class="sign__btn" style="border:0px;" type="submit" value="Update" name="update" >
+												</div>
+											</div>
+											
+										</form>
+										
+										<?php } else{ ?>
+										<form action="checkAddAdmin.php"  method="GET" class="form">
+										
+											<div class="row">
+												<div class="col-12">
+													<h4 class="sign__title">Profile details</h4>
+												</div>
+
+												
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="email">Email</label>
+														<input id="email" type="text" name="email" class="sign__input" placeholder="email@email.com">
+													</div>
+												</div>
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="oldpass">Password</label>
+														<input id="oldpass" type="password" name="pass" class="sign__input">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="firstname">First name</label>
+														<input id="firstname" type="text" name="firstname" class="sign__input" placeholder="John">
+													</div>
+												</div>
+
+												<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+													<div class="sign__group">
+														<label class="sign__label" for="lastname">Last name</label>
+														<input id="lastname" type="text" name="lastname" class="sign__input" placeholder="Doe">
+													</div>
+												</div>
+
+											
+
+												<div class="col-12">
+													<div class="sign__group">
+														<label class="sign__label" for="rights">Rights</label>
+														<select class="js-example-basic-single" id="rights" name="role">
+															<option value="Modifier">Modifier</option>
+															<option value="Visualiser">Visualiser</option>
+														
+														</select>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<input class="sign__btn" style="border:0px;" type="submit" value="Add Admin">
+												</div>
+											</div>
+										</form>
+										<?php } ?>
+									</div>
+									<!-- end details form -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end content tabs -->
+			</div>
+		</div>

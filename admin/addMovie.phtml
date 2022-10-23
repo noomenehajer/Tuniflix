@@ -1,0 +1,183 @@
+<div class="container-fluid">
+			<div class="row">
+				<!-- main title -->
+				<div class="col-12">
+					<div class="main__title">
+						<h2>Add new item</h2>
+					</div>
+				</div>
+				<!-- end main title -->
+
+				<!-- form -->
+				<div class="col-12">
+
+				<?php if(isset($_GET["error"])){ 
+					// ON AFFICHE UN MSG SELON L'ERROR
+							if($_GET["error"]=="extension"){	 
+								echo" <script>alert('EXTENSION MUST BE PNG FOR PICTURES AND MP4 FOR VIDEOS !!')</script>";
+							}
+						 else{
+							 echo" <script>alert('ONE OR MORE OF THE FIELDS IS EMPTY !!')</script>";
+						    }  
+						
+						}?> 
+						
+						<?php if (isset ($_GET['id'])){   ?>
+						<form action="checkAddMovie.php"  method="GET" class="form">
+						<input type="hidden" name="id"  value="<?=$id;?>">
+
+						<div class="row">
+							<div class="col-12 col-md-5 form__cover">
+								<div class="row">
+									<div class="col-12 col-sm-6 col-md-12">
+										<div class="form__img">
+											<img id="form__img" src="<?=$urlcover?>" alt=" ">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-7 form__content ">
+								<div class="row">
+									<div class="col-12">
+										<div class="form__group">
+											<input type="text" name="titre" class="form__input" placeholder="Title" value="<?=$titre;?>">
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form__group">
+											<textarea id="text" name="description" class="form__textarea" placeholder="Description" ><?=$description;?></textarea>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form__group">
+											<input type="number" name="year" class="form__input" placeholder="Year" value="<?=$year;?>">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form__group">
+											<select class="js-example-basic-multiple" name="categorie" id="genre" multiple="multiple">
+												<option value="Action"<?php if (strtoupper ($categorie)=="ACTION"){echo "SELECTED";}?>>Action</option>
+												<option value="Adventure"<?php if (strtoupper ($categorie)=="ADVENTURE"){echo "SELECTED";}?>>Adventure</option>
+												<option value="Animation" <?php if (strtoupper ($categorie)=="ANIMATION"){echo "SELECTED";}?>>Animation</option>
+												<option value="Comedy" <?php if (strtoupper ($categorie)=="COMEDY"){echo "SELECTED";}?>>Comedy</option>
+												<option value="Crime"<?php if (strtoupper ($categorie)=="CRIME"){echo "SELECTED";}?>>Crime</option>
+												<option value="Drama"<?php if (strtoupper ($categorie)=="DRAMA"){echo "SELECTED";}?>>Drama</option>
+												<option value="Fantasy"<?php if (strtoupper ($categorie)=="FANTASY"){echo "SELECTED";}?>>Fantasy</option>
+												<option value="Historical"<?php if (strtoupper ($categorie)=="HISTORICAL"){echo "SELECTED";}?>>Historical</option>
+												<option value="Horror"<?php if (strtoupper ($categorie)=="HORROR"){echo "SELECTED";}?>>Horror</option>
+												<option value="Romance"<?php if (strtoupper ($categorie)=="ROMANCE"){echo "SELECTED";}?>>Romance</option>
+												<option value="Sci-fi"<?php if (strtoupper ($categorie)=="SCI-FI"){echo "SELECTED";}?>>Sci-fi</option>
+												<option value="Thriller"<?php if (strtoupper ($categorie)=="THRILLER"){echo "SELECTED";}?>>Thriller</option>
+												<option value="Western"<?php if (strtoupper ($categorie)=="WESTERN"){echo "SELECTED";}?>>Western</option>
+												<option value="Otheer"<?php if (strtoupper ($categorie)=="OTHER"){echo "SELECTED";}?>>Other</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form__group form__group--link">
+											<input type="text" class="form__input" placeholder="Add cover link" name="urlcover" value="<?=$urlcover;?>">
+										</div>
+									</div>
+								</div>
+							</div>
+									<div class="col-12">
+										<div class="form__group form__group--link">
+											<input type="text" class="form__input" placeholder="Add movie link" name="urlfilm" value="<?=$urlfilm;?>">
+										</div>
+									</div>
+																
+							<div class="col-12">
+													<div class="sign__group">
+														<label class="sign__label" for="subscription">Subscription</label>
+														<select class="js-example-basic-single" id="subscription" name="abonnement">
+														<option value="Free" <?php if (strtoupper ($abonnement)=="FREE"){echo "SELECTED";}?>>Free</option>	
+														<option value="Premium"<?php if (strtoupper ($abonnement)=="PREMIUM"){echo "SELECTED";}?>>Premium</option>
+														</select>
+													</div>
+												</div>
+									<div class="col-12">
+										<input type="submit" class="form__btn" style="border:0px" value="Update" name="update">
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</form>
+					<?php } else{?>
+					<form action="checkAddMovie.php"  method="GET" class="form">
+						<div class="row">
+						
+							<div class="col-12 ">
+								<div class="row">
+									<div class="col-12">
+										<div class="form__group">
+											<input type="text" name="titre" class="form__input" placeholder="Title">
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form__group">
+											<textarea id="text" name="description" class="form__textarea" placeholder="Description"></textarea>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form__group">
+											<input type="number" name="year" class="form__input" placeholder="Year" >
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form__group">
+											<select class="js-example-basic-multiple" name="categorie" id="genre" multiple="multiple" >
+												<option value="Action">Action</option>
+												<option value="Adventure">Adventure</option>
+												<option value="Animation">Animation</option>
+												<option value="Comedy">Comedy</option>
+												<option value="Crime">Crime</option>
+												<option value="Drama">Drama</option>
+												<option value="Fantasy">Fantasy</option>
+												<option value="Historical">Historical</option>
+												<option value="Horror">Horror</option>
+												<option value="Romance">Romance</option>
+												<option value="Sci-fi">Sci-fi</option>
+												<option value="Thriller">Thriller</option>
+												<option value="Western">Western</option>
+												<option value="Otheer">Other</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form__group form__group--link">
+											<input type="text" class="form__input" placeholder="Add cover link" name="urlcover">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form__group form__group--link">
+											<input type="text" class="form__input" placeholder="Add movie link" name="urlfilm">
+										</div>
+									</div>
+								</div>
+							</div>								
+							<div class="col-12 ">
+													<div class="sign__group">
+														<label class="sign__label" for="subscription">Subscription</label>
+														<select class="js-example-basic-single" id="subscription" name="abonnement">
+														<option value="Free">Free</option>	
+														<option value="Premium">Premium</option>
+														</select>
+													</div>
+												</div>
+									<div class="col-12">
+										<input type="submit" class="form__btn" style="border:0px" value="Publish">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<?php } ?>
+				</div>
+				<!-- end form -->
+			</div>
+		</div>
